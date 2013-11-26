@@ -1,0 +1,12 @@
+Given an array of positive integers, give me all the pairs which add (equal) up to 100. 
+No duplicates - [51, 49, 51] should only output one pair, 51-49. 
+
+A single 50 is not a pair.
+
+sample_data = [0, 1, 99, 100, 0, 10, 90, 30, 55, 33, 55, 75, 50, 51, 49, 50, 51, 49, 51]
+
+Sample output
+1,99
+0,100
+10,90
+51,49
