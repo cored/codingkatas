@@ -1,12 +1,9 @@
 class Word
   attr_reader :word
 
-  def self.with(word)
-    new(word)
-  end
-
   def initialize(word)
-    @word = word
+    @word = word.downcase
+    freeze
   end
 
   def anagram_of?(word)
@@ -14,19 +11,15 @@ class Word
   end
 
   def ==(other)
-    @word == other.word.downcase
+    @word == other.word
   end
 
   def alphagranize
-    @word.downcase.chars.sort.join ' '
+    @word.chars.sort.join ' '
   end
 end
 
 class Words
-
-  def self.for(words)
-    new(words)
-  end
 
   def initialize(words)
     @words = words 
@@ -41,11 +34,11 @@ end
 class Anagram
 
   def initialize(word)
-    @word = Word.with word
+    @word = Word.new word
   end
 
   def match(words)
-    Words.for(words).group_anagrams(@word)
+    Words.new(words).group_anagrams(@word)
   end
 
 end
