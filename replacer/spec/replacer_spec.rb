@@ -1,27 +1,26 @@
-class Replacer
-  def initialize(str)
-    @str = str
+require_relative 'replacer'
+
+describe Replacer, '.evaluate' do 
+
+  it 'returns proper evaluation for a single variable' do 
+    expect(
+      "Hello {$name}".extend(Replacer).evaluate('name' => 'Rafael')
+    ).to eql "Hello Rafael"
   end
 
-  def replace(dic)
+  it 'returns proper evaluation for multiple variables' do 
+    expect(
+      "Hello {$firstname} {$lastname}".extend(Replacer).evaluate('firstname' => 'Rafael', 'lastname' => 'George')
+    ).to eql "Hello Rafael George"
   end
-end
 
-describe Replacer do 
-  let(:replacer) { Replacer.new(str) }
-
-  context 'when empty' do
-    let(:str) { "" } 
-    it 'returns an empty string' do 
-      expect(replacer.replace("")).to eql ""
+  context 'error handling' do 
+    it 'throws an exception with variable doesnt exists' do 
+      expect { 
+        "Hello {$name}".extend(Replacer).evaluate({})
+      }.to raise_error(ReplacerError)
     end
   end
 
-  context 'when a string is sent' do 
-    let(:str) { "$temp$" }
-    it 'returns the replacement between $$' do 
-      expect(replacer.replace(%w{temp temporary})).to eql "temporary"
-    end
-  end
 
 end
