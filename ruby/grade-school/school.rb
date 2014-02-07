@@ -1,5 +1,12 @@
-Student = Struct.new :name, :grade do 
+class Student 
   include Comparable
+
+  attr_reader :grade, :name
+  def initialize(name, grade) 
+    @name = name
+    @grade = grade
+    freeze
+  end
 
   def <=>(other)
     grade <=> other.grade 
