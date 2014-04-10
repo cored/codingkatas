@@ -15,7 +15,7 @@ class NumberToWords
   end
 
   private 
-  attr_reader :number
+  attr_reader :number, :numbers
 end
 
 class Ones
