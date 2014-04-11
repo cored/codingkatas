@@ -1,5 +1,4 @@
-class Ones
-  WORDS = %w|zero one two three four five six seven eight nine| 
+class Number 
 
   def self.for(num)
     new(num)
@@ -8,6 +7,13 @@ class Ones
   def initialize(num_word)
     @num_word = num_word
   end
+
+  private
+  attr_reader :num_word
+end
+
+class Ones < Number
+  WORDS = %w|zero one two three four five six seven eight nine| 
 
   def can_convert?
     num_word / 10 == 0 
@@ -16,22 +22,10 @@ class Ones
   def to_s
     WORDS[num_word%10]
   end
-
-  private 
-  attr_reader :num_word
-
 end
 
-class Tens 
+class Tens < Number 
   WORDS = %w|ten eleven twelve thirteen fourteen fithteen sixteen seventeen eighteen nineteen|
-
-  def self.for(num)
-    new(num)
-  end
-
-  def initialize(num_word)
-    @num_word = num_word
-  end
 
   def can_convert?
     num_word / 10 == 1
@@ -40,21 +34,10 @@ class Tens
   def to_s 
     WORDS[num_word%10]
   end
-
-  private 
-  attr_reader :num_word
 end
 
-class Twenties 
+class Twenties < Number
   WORDS = %w|twenty|
-
-  def self.for(num) 
-    new(num)
-  end
-
-  def initialize(num_word)
-    @num_word = num_word
-  end
 
   def can_convert?
     num_word / 10 == 2
@@ -63,9 +46,6 @@ class Twenties
   def to_s
     WORDS[num_word%10]
   end
-
-  private 
-  attr_reader :num_word
 end
 
 class NumberToWords
