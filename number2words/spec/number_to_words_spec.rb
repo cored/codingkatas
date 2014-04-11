@@ -36,6 +36,10 @@ describe NumberToWords do
       NumberToWords.convert(13).should == 'thirteen'
     end
 
+    it 'should returns twenty for 20' do 
+      NumberToWords.convert(20).should == 'twenty'
+    end
+
   end
 
 end
