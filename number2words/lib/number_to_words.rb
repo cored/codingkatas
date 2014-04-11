@@ -43,7 +43,7 @@ class Ones
 end
 
 class Tens 
-  WORDS = %w|ten eleven twelve therteen fourteen fithteen sixteen seventeen eighteen nineteen|
+  WORDS = %w|ten eleven twelve thirteen fourteen fithteen sixteen seventeen eighteen nineteen|
 
   def self.for(num)
     new(num)

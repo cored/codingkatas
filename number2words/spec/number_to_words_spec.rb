@@ -20,20 +20,22 @@ describe NumberToWords do
   end
 
   context 'with two digits numbers' do 
-    it 'should returns twenty for 10' do 
+    it 'should returns ten for 10' do 
       NumberToWords.convert(10).should == 'ten'
     end
     
-    it 'should returns twenty one for 11' do 
+    it 'should returns eleven for 11' do 
       NumberToWords.convert(11).should == 'eleven'
     end
 
-    it 'should returns twenty for 12' do 
+    it 'should returns twelve for 12' do 
       NumberToWords.convert(12).should == 'twelve'
     end
     
-    it 'should returns twenty one for 13' do 
-      NumberToWords.convert(13).should == 'therteen'
+    it 'should returns thirteen for 13' do 
+      NumberToWords.convert(13).should == 'thirteen'
     end
+
   end
+
 end
