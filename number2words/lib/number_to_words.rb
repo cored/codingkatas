@@ -13,7 +13,7 @@ class Number
 end
 
 class Ones < Number
-  WORDS = %w|zero one two three four five six seven eight nine| 
+  WORDS = [" ", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"] 
 
   def can_convert?
     num_word / 10 == 0 
@@ -44,7 +44,7 @@ class Twenties < Number
   end
   
   def to_s
-    WORDS[num_word%10]
+    "#{WORDS[0]} #{Ones.for(num_word%10).to_s}".strip
   end
 end
 

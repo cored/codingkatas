@@ -17,6 +17,10 @@ describe NumberToWords do
     it 'should returns three for 4' do 
       NumberToWords.convert(4).should == 'four'
     end
+
+    it 'should returns nine for 9' do 
+      NumberToWords.convert(9).should == 'nine'
+    end
   end
 
   context 'with two digits numbers' do 
@@ -36,8 +40,28 @@ describe NumberToWords do
       NumberToWords.convert(13).should == 'thirteen'
     end
 
+    it 'should returns nineteen for 19' do 
+      NumberToWords.convert(19).should == 'nineteen'
+    end
+
     it 'should returns twenty for 20' do 
       NumberToWords.convert(20).should == 'twenty'
+    end
+
+    it 'should returns twenty one for 21' do 
+      NumberToWords.convert(21).should == 'twenty one'
+    end
+
+    it 'should returns twenty two for 22' do 
+      NumberToWords.convert(22).should == 'twenty two'
+    end
+
+    it 'should returns twenty three for 23' do 
+      NumberToWords.convert(23).should == 'twenty three' 
+    end
+
+    it 'should returns twenty nine for 29' do 
+      NumberToWords.convert(29).should == 'twenty nine'
     end
 
   end
