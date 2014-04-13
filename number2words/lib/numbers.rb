@@ -1,0 +1,5 @@
+require_relative 'numbers/number'
+require_relative 'numbers/ones'
+require_relative 'numbers/tens'
+require_relative 'numbers/twenties'
+require_relative 'numbers/thirties'
