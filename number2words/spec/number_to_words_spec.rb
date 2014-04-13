@@ -68,6 +68,14 @@ describe NumberToWords do
       NumberToWords.convert(30).should == 'thirty'
     end
 
+    it 'should returns thirty one for 31' do 
+      NumberToWords.convert(31).should == 'thirty one'
+    end
+
+    it 'should returns thirty nine for 39' do 
+      NumberToWords.convert(39).should == 'thirty nine'
+    end
+
 
   end
 
