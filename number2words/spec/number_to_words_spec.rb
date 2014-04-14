@@ -75,8 +75,16 @@ describe NumberToWords do
     it 'should returns thirty nine for 39' do 
       NumberToWords.convert(39).should == 'thirty nine'
     end
+  end
 
+  context 'three digits number' do 
+    it 'should returns hundred for 100' do 
+      NumberToWords.convert(100).should == 'hundred' 
+    end
 
+    it 'should returns one hundred one for 101' do 
+      NumberToWords.convert(101).should == 'one hundred one'
+    end
   end
 
 end

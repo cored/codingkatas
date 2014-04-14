@@ -1,7 +1,7 @@
 require_relative 'numbers'
 
 class NumberToWords
-  NUMBERS = [Ones, Tens, Twenties, Thirties]
+  NUMBERS = [Ones, Tens, Twenties, Thirties, Hundreds]
 
   def self.convert(number)
     new(number).convert
