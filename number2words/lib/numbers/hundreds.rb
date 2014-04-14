@@ -10,6 +10,6 @@ class Hundreds < Number
   end
 
   def to_s 
-    "#{Ones.for(num_word%10).to_s} #{WORDS[0]} #{Ones.for(num_word%10).to_s}".strip
+    "#{Ones.for(1).to_s} #{WORDS[0]} #{Ones.for(num_word%10).to_s}".strip
   end
 end
