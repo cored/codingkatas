@@ -2,6 +2,7 @@ class Array
 
   def conjoin(*parameters)
     separator = ' ' if parameters.empty?
+    require 'pry'; binding.pry  
     self.join separator
   end
 

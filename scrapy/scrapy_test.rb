@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'nokogiri'
 require 'open-uri'
 
+
 class Scrapy
   URL = 'http://www.elcaribe.com.do'
 
@@ -10,35 +11,12 @@ class Scrapy
   end
 
   def rate
-    Rate.for(@page.css('div.dolar span')).to_h
-  end
-end
-
-class Rate 
-  def self.for(data) 
-    new(data.children)
+    rate = {}
+    rate[:euro] = @page.css('div.dolar span').children[1].text.split(/\$/)[1].to_f
+    rate[:dollar] = @page.css('div.dolar span').children[0].text.split(/\$/)[1].to_f
+    rate
   end
 
-  def initialize(rate_data) 
-    @dollar = Dollar.for(rate_data[0].text)
-    @euro = Euro.for(rate_data[1].text)
-  end
-
-  def to_h 
-    { euro: @euro, dollar: @dollar }
-  end
-
-  class Dollar 
-    def self.for(dollar)
-      dollar.split(/\$/)[1].to_f
-    end
-  end
-
-  class Euro
-    def self.for(euro) 
-      euro.split(/\$/)[1].to_f
-    end
-  end
 end
 
 describe Scrapy do
