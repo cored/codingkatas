@@ -2,5 +2,9 @@
 source "https://rubygems.org"
 
 gem 'nokogiri'
-gem 'pry'
+gem 'mongoid', '~> 3.1.6'
+gem 'rake'
 
+group :develop, :test do 
+  gem 'pry'
+end

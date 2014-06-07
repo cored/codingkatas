@@ -1,0 +1,12 @@
+development: &default
+  sessions:
+    default:
+      database: dev_rate_exchange
+      hosts:
+        - localhost:27017
+
+test: 
+  <<: *default
+
+production: 
+  <<: *default
