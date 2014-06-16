@@ -6,19 +6,17 @@ describe Syncronizer do
     it 'add friends not present' do 
       Service.stub(:retrieve_friends) { '{ "friends" : [ {"id":"1", "name":"jack"}, {"id":"2", "name":"john"} ] }' }
 
-      syncronizer = Syncronizer.new
-      syncronizer.perform.first.name.should == 'jack'
+      Syncronizer.call.first.name.should == 'jack'
     end
 
     it 'updates existing friends names based on id' do 
       Service.stub(:retrieve_friends) { '{ "friends" : [ {"id":"1", "name":"jack"}, {"id":"2", "name":"john"} ] }' }
 
-      syncronizer = Syncronizer.new
-      syncronizer.perform
+      Syncronizer.call
 
       Service.stub(:retrieve_friends) { '{ "friends" : [ {"id":"1", "name":"bob"}, {"id":"2", "name":"john"} ] }' }
 
-      friends = syncronizer.perform
+      friends = Syncronizer.call
       friends.first.name.should == 'bob'
       friends.size.should == 2
     end
@@ -26,12 +24,11 @@ describe Syncronizer do
     it 'delete local friends that are not present in the response' do 
       Service.stub(:retrieve_friends) { '{ "friends" : [ {"id":"1", "name":"jack"}, {"id":"2", "name":"john"} ] }' }
 
-      syncronizer = Syncronizer.new
-      syncronizer.perform
+      Syncronizer.call
 
       Service.stub(:retrieve_friends) { '{ "friends" : [ {"id":"2", "name":"molly"} ] }' }
 
-      friends = syncronizer.perform
+      friends = Syncronizer.call
       friends.first.name.should == 'molly'
       friends.size.should == 1
     end
