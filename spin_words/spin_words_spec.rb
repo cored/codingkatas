@@ -1,6 +1,6 @@
 module SpinWords 
   def spin 
-    split(/\s/).map { |word|  word.size >= 5 ? word.reverse : word }.join(' ')
+    gsub(/\w{5,}+/) { |w| w.reverse } 
   end
 end
 
@@ -15,11 +15,15 @@ describe SpinWords do
 
   context 'phrases' do 
     it 'returns the same words for phrases smaller than 5' do 
-      expect("This word".extend(SpinWords).spin).to eql "This word"
+      expect("This is a test".extend(SpinWords).spin).to eql "This is a test"
     end
 
     it 'returns the same the proper spin for "Hey fellow warriors"' do 
       expect("Hey fellow warriors".extend(SpinWords).spin).to eql "Hey wollef sroirraw"
+    end
+
+    it 'returns the proper spin words for "This is another test"' do 
+      expect("This is another test".extend(SpinWords).spin).to eql "This is rehtona test"
     end
   end
 end
