@@ -8,7 +8,7 @@ describe Restrictions do
     restrictions.print_pretty.should == ["Monday 3:00 - 4:00", "Tuesday 4:00 - 5:00"]
   end
 
-  it 'group days with similar hours' do 
+  pending 'group days with similar hours' do 
     restrictions << Restriction.new("Monday", "3:00", "4:00")
     restrictions << Restriction.new("Tuesday", "4:00", "5:00")
     restrictions << Restriction.new("Wednesday", "4:00", "5:00")
