@@ -27,5 +27,15 @@ describe SortSentence do
       expect("I, habitan of the Alleghanies, treating of him as he is in himself in his own rights".
              extend(SortSentence).sort).to eql "as habitan he him himself his in in is of of own rights the treating I Alleghanies"
     end
+
+    it 'another proper sorted sentence' do 
+      expect("Land of the Old Thirteen! Massachusetts land! land of Vermont and Connecticut!"
+             .extend(SortSentence).sort).to eql "and land land of of the Vermont Thirteen Old Massachusetts Land Connecticut"
+    end
+
+    it 'new one' do 
+      expect("take up the task eternal, and the burden and the lesson".extend(SortSentence).sort).
+        to eql "and and burden eternal lesson take task the the the up"
+    end
   end
 end
