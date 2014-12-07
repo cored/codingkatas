@@ -8,7 +8,6 @@ function twoSum(numbers, target) {
       }
     }
   }
-  return [];
 }
 
 
