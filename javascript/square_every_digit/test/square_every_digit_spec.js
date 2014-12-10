@@ -1,7 +1,7 @@
 var assert = require("assert");
 
-function squareDigits() {
-  return 0;
+function squareDigits(num) {
+  return num.toString().split("").map(function(n) { return parseInt(n)*parseInt(n) })
 }
 
 describe("Square Every Digit", function() { 
