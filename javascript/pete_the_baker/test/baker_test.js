@@ -2,7 +2,7 @@ var expect = require("chai").expect;
 
 var cakes = function(recipe, ingredients) { 
   var result = Math.floor(Object.keys(recipe).map(function(ingredient) { 
-    return ingredients[ingredient] / recipe[ingredient];
+    return (ingredients[ingredient] || 0) / recipe[ingredient];
   }).sort(function(a,b) {
     return a - b;
   })[0]);
