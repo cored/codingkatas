@@ -1,10 +1,9 @@
 var expect = require("chai").expect
 
 var solution = function(digits) { 
-  var digits_n = digits.match(/\d{1,5}/g).map(function(digit) { 
+  return Math.max.apply(null, digits.match(/\d{1,5}/g).map(function(digit) { 
     return parseInt(digit);
-  });
-  return Math.max.apply(null, digits_n);
+  }));
 }
 
 describe("Largest 5 digit number in a series", function() { 
