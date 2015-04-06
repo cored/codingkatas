@@ -2,10 +2,15 @@ var expect = require("chai").expect;
 
 var getCount = function(str) { 
   var re = new RegExp("a|e|i|o|u", "g");
-  return str.match(re).length;
+  var amount = str.match(re);
+  return Array.isArray(amount) ? amount.length : 0;
 }
 
 describe("Vowel count", function() { 
+  it("returns 0 for non vowel string", function() { 
+    expect(getCount("pyx")).to.equal(0);
+  });
+
   it("returns 1 for a", function() { 
     expect(getCount("a")).to.equal(1);
   })
