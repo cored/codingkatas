@@ -4,11 +4,17 @@ module ShadesOfGrey
   extend self
 
   def call(number)
-    (1..number).inject([]) do |result, color|
-      hex = color.to_s(16)
-      hex = color < 15 ? "0#{hex}" * 3 : hex * 3
-      result << "##{hex}"
+    (1..number).map { |code| Color.new(code) }
+    .inject([]) do |result, color|
+      result << "##{color}"
     end[0..254]
+  end
+
+  class Color < Struct.new(:code)
+    def to_s
+      hex = code.to_s(16)
+      hex = code < 15 ? "0#{hex}" * 3 : hex * 3
+    end
   end
 end
 
